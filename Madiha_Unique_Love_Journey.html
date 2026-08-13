@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Madiha ✦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;600;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}
+body{font-family:Manrope,sans-serif;background:#08070b;color:#fff}
+.app{height:100%;position:relative;overflow:hidden;background:
+radial-gradient(circle at 20% 15%,#47213b 0,transparent 30%),
+radial-gradient(circle at 80% 80%,#142f38 0,transparent 34%),
+linear-gradient(135deg,#09070b,#120b16 50%,#07080a)}
+.app:before{content:"";position:absolute;inset:0;opacity:.16;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:85px 85px}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;transform:scale(.94) translateY(20px);pointer-events:none;transition:.65s}
+.screen.active{opacity:1;transform:none;pointer-events:auto}
+.panel{width:min(470px,94vw);padding:30px;border-radius:30px;text-align:center;
+background:linear-gradient(145deg,#ffffff12,#ffffff05);border:1px solid #ffffff20;
+box-shadow:0 30px 100px #000b, inset 0 1px #fff2;backdrop-filter:blur(22px)}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#d8b4c7}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;margin:8px 0;color:#fff}
+h1{font-size:58px;line-height:.95}.subtitle{color:#cbbac3;line-height:1.7}
+.btn{border:1px solid #ffffff22;border-radius:999px;padding:14px 23px;color:#fff;
+background:linear-gradient(135deg,#c94f87,#6f285d);font-weight:700;cursor:pointer;margin:6px;
+box-shadow:0 12px 35px #a33f7550}
+.btn.ghost{background:#ffffff08;box-shadow:none;color:#e2c3d1}
+.steps{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:20}
+.dot{width:7px;height:7px;border-radius:50%;background:#ffffff25}.dot.on{width:24px;background:#d9a7c0}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:22px 0}
+.choice{height:105px;border:1px solid #ffffff18;border-radius:20px;background:#ffffff08;color:#fff;cursor:pointer;
+font-size:15px;box-shadow:inset 0 1px #fff1;transition:.25s}
+.choice:hover{transform:translateY(-3px);background:#ffffff12}
+.choice span{display:block;font-size:34px;margin-bottom:7px}
+.meter{height:7px;background:#ffffff10;border-radius:20px;overflow:hidden;margin:20px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#c94f87,#e6c0d0);transition:.5s}
+.envelope{width:170px;height:120px;margin:25px auto;position:relative;cursor:pointer;filter:drop-shadow(0 20px 35px #0008)}
+.envbody{position:absolute;inset:0;background:linear-gradient(145deg,#b94675,#6b214e);border-radius:12px}
+.flap{position:absolute;left:0;top:0;border-left:85px solid transparent;border-right:85px solid transparent;border-top:62px solid #df83a5;transform-origin:top;transition:.8s;z-index:3}
+.seal{position:absolute;z-index:5;left:50%;top:48px;transform:translateX(-50%);font-size:30px;transition:.5s}
+.envelope.open .flap{transform:rotateX(180deg)}.envelope.open .seal{opacity:0;transform:translateX(-50%) scale(1.5)}
+.final{padding:24px;border-radius:22px;background:#ffffff08;border:1px solid #ffffff15}
+.love{font-family:"Cormorant Garamond",Georgia,serif;font-size:38px;color:#f1c2d5}
+.type{min-height:80px;color:#d9c7cf;line-height:1.8}
+.spark{position:absolute;font-size:20px;pointer-events:none;animation:rise 4s linear forwards}
+@keyframes rise{from{transform:translateY(20px) scale(.7);opacity:0}15%{opacity:1}to{transform:translateY(-100vh) rotate(25deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="steps" id="steps"></div>
+
+<section class="screen active">
+<div class="panel">
+<div class="eyebrow">A private little journey</div>
+<h1>Madiha</h1>
+<p class="subtitle">This isn't just a message.<br>It's a little game with a secret at the end. ✦</p>
+<div style="font-size:62px;margin:20px">🌙</div>
+<button class="btn" onclick="go(1)">Enter the story ✨</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="panel">
+<div class="eyebrow">Chapter I — The Choice</div>
+<h2>If you could choose one…</h2>
+<p class="subtitle">Which feeling would you keep forever?</p>
+<div class="choice-grid">
+<button class="choice" onclick="choose(this,'A moment that makes you smile')"><span>🌷</span>A beautiful moment</button>
+<button class="choice" onclick="choose(this,'A person who feels like home')"><span>🏡</span>A safe place</button>
+<button class="choice" onclick="choose(this,'A memory you never forget')"><span>🌙</span>A forever memory</button>
+<button class="choice" onclick="choose(this,'A feeling worth protecting')"><span>💎</span>A rare feeling</button>
+</div>
+<p id="choiceText" class="subtitle">Choose one to unlock the next chapter.</p>
+<button class="btn" id="next1" style="display:none" onclick="go(2)">Next chapter →</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="panel">
+<div class="eyebrow">Chapter II — The Lock</div>
+<h2>Find the missing word</h2>
+<p class="subtitle">Complete this sentence:</p>
+<p style="font-family:Georgia,serif;font-size:23px;color:#efd5df">“Some people enter your life…<br>and somehow become <b>_____</b>.”</p>
+<div class="choice-grid">
+<button class="choice" onclick="unlock(this,false)"><span>☁</span>Random</button>
+<button class="choice" onclick="unlock(this,true)"><span>❤️</span>Special</button>
+<button class="choice" onclick="unlock(this,false)"><span>⌛</span>Temporary</button>
+<button class="choice" onclick="unlock(this,false)"><span>⭐</span>Famous</button>
+</div>
+<div class="meter"><div class="fill" id="fill"></div></div>
+<p id="lockText" class="subtitle">The right answer opens the lock.</p>
+<button class="btn" id="next2" style="display:none" onclick="go(3)">Unlock the final chapter →</button>
+</div>
+</section>
+
+<section class="screen">
+<div class="panel">
+<div class="eyebrow">Chapter III — The Letter</div>
+<h2>A sealed confession</h2>
+<div class="envelope" id="env" onclick="openLetter()">
+<div class="envbody"></div><div class="flap"></div><div class="seal">💗</div>
+</div>
+<p id="hint" class="subtitle">Tap the seal.</p>
+<div id="letter" class="final" style="display:none">
+<div class="love">Madiha, I Love You ❤️</div>
+<p class="type" id="typing"></p>
+<p style="color:#d7a9bd">Some feelings don't need a perfect explanation.<br>They just need the courage to be said.</p>
+<div style="font-family:Georgia,serif;color:#edc5d5;font-size:20px">With all my heart ✦</div>
+</div>
+</div>
+</section>
+</div>
+
+<script>
+let page=0,chosen=false,locked=false;
+const screens=[...document.querySelectorAll('.screen')];
+const steps=document.getElementById('steps');
+for(let i=0;i<4;i++){let d=document.createElement('i');d.className='dot';steps.appendChild(d)}
+function dots(){[...steps.children].forEach((d,i)=>d.classList.toggle('on',i===page))}
+function go(n){screens[page].classList.remove('active');page=n;screens[page].classList.add('active');dots();sparkles()}
+function sparkles(){for(let i=0;i<14;i++){let s=document.createElement('div');s.className='spark';s.textContent=['✦','♡','·','✧'][Math.floor(Math.random()*4)];s.style.left=Math.random()*100+'vw';s.style.top=(70+Math.random()*30)+'vh';s.style.animationDelay=Math.random()*.8+'s';document.querySelector('.app').appendChild(s);setTimeout(()=>s.remove(),4500)}}
+function choose(el,msg){if(chosen)return;chosen=true;el.style.borderColor='#d9a7c0';document.getElementById('choiceText').textContent=msg+' — maybe that's the feeling this little story is about. ✦';document.getElementById('next1').style.display='inline-block'}
+function unlock(el,ok){if(locked)return;if(ok){locked=true;document.getElementById('fill').style.width='100%';document.getElementById('lockText').textContent='Unlocked. You found the word. ❤️';document.getElementById('next2').style.display='inline-block';el.style.borderColor='#d9a7c0'}else{document.getElementById('lockText').textContent='Not quite… try again. ✦'}}
+function openLetter(){if(document.getElementById('env').classList.contains('open'))return;document.getElementById('env').classList.add('open');document.getElementById('hint').style.display='none';setTimeout(()=>{document.getElementById('letter').style.display='block';typeText()},700)}
+function typeText(){const text='Madiha, there are some people who quietly become important without even trying. Somehow, you became one of those people for me. I just wanted you to know that you are special to me, and yes… I love you. ❤️';let i=0;const el=document.getElementById('typing');const t=setInterval(()=>{el.textContent=text.slice(0,i++);if(i>text.length)clearInterval(t)},28)}
+dots();
+</script>
+</body>
+</html>
